@@ -1,0 +1,103 @@
+
+<div class="" data-target="#FolderModal" (click)="showModal()">
+
+    <div class="card text-center add" >
+      <div class="card-body ">
+        <i class="material-icons" style="font-size: 130px">file_upload</i>
+        <h4 class="card-title" >Importer des fichiers</h4>
+      </div>
+    </div>
+  </div>
+
+<div class="modal fade uploader" id="FolderModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Importer des fichiers</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+          <div >
+            <div >
+              <input type="file" ng2FileSelect [uploader]="uploader" multiple  /><br/>
+
+            </div>
+
+            <div  style="margin-bottom: 40px;margin-top: 40px">
+
+              <h3>Chargement des documents :</h3>
+              <p>Nombre de fichiers: {{ uploader?.queue?.length }}</p>
+
+              <table class="table" style="width: 100%;max-width: 100%">
+                <thead>
+                <tr>
+                  <th width="20%">Name</th>
+                  <th>Taille</th>
+                  <th>Progression</th>
+                  <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let item of uploader.queue">
+                  <div style="width: 250px;overflow: scroll"><td><strong>{{ item?.file?.name }}</strong></td></div>
+
+                  <td nowrap>{{ item?.file?.size/1024/1024 | number:'.2' }} MB</td>
+                  <td>
+                    <div class="progress" style="margin-bottom: 0;">
+                      <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': item.progress + '%' }"></div>
+                    </div>
+                  </td>
+                  <td nowrap>
+                    <button type="button" class="btn btn-outline-success btn-xs"
+                            (click)="item.upload()" [disabled]="item.isReady || item.isUploading || item.isSuccess">
+                      <span class="glyphicon glyphicon-upload"></span> Uploader
+                    </button>
+                    <button type="button" class="btn btn-outline-warning btn-xs"
+                            (click)="item.cancel()" [disabled]="!item.isUploading">
+                      <span class="glyphicon glyphicon-ban-circle"></span> Annuler
+                    </button>
+                    <button type="button" class="btn btn-outline-danger btn-xs"
+                            (click)="item.remove()">
+                      <span class="glyphicon glyphicon-trash"></span> Supprimer
+                    </button>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+
+              <div>
+                <div style="margin-bottom: 30px">
+                  Progression :
+                  <div class="progress" style="">
+                    <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': uploader.progress + '%' }"></div>
+                  </div>
+                </div>
+                <button type="button" class="btn btn-success btn-s"
+                        (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">
+                  <span class="glyphicon glyphicon-upload"></span> Tout uploader
+                </button>
+                <button type="button" class="btn btn-warning btn-s"
+                        (click)="uploader.cancelAll()" [disabled]="!uploader.isUploading">
+                  <span class="glyphicon glyphicon-ban-circle"></span> Tout annuler
+                </button>
+                <button type="button" class="btn btn-danger btn-s"
+                        (click)="uploader.clearQueue()" [disabled]="!uploader.queue.length">
+                  <span class="glyphicon glyphicon-trash"></span> Tout supprimer
+                </button>
+              </div>
+
+            </div>
+
+          </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="Close()" >Terminer</button>
+      </div>
+
+    </div>
+  </div>
+</div>

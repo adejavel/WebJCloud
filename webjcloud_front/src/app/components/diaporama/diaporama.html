@@ -1,0 +1,36 @@
+
+<div class="diap" style="height: 100vh;background-color: black">
+  <div *ngIf="!compLoad">
+    <div *ngIf="type==='image'">
+      <img #image id = "image" style="max-width: 100%;max-height: 100%;height: auto;width: auto;" (load)="isLoaded()">
+    </div>
+    <div *ngIf="type==='video'" style=" margin: auto;right: 0;left:0;top: 0;bottom: 0;">
+      <video controls  (load)="isLoaded()" style="max-width: 100%;max-height: 100%;height: auto;width: auto;">
+        <source #video id = "video" >
+      </video>
+    </div>
+  </div>
+
+  <a class="carousel-control-prev" role="button" data-slide="prev" (click)="Prev(image,video)" style="cursor: pointer">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next"  role="button" data-slide="next" (click)="Next(image,video)" style="cursor: pointer">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+  <i class="material-icons icon" (click)="Back()" >close</i>
+</div>
+<div *ngIf="loading">
+  <div class="diap" style="height: 100vh;background-color: black">
+    <loader style="left: 45%;top: 45%;position: absolute;"></loader>
+  </div>
+</div>
+
+
+
+
+
+
+
+

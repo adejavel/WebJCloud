@@ -1,0 +1,56 @@
+.display {
+
+  height: 100%;
+  width: 100%;
+
+  max-height: 100vh;
+  max-width: 100vh;
+}
+.diap img {
+  position: absolute;
+  top: 0; bottom:0; left: 0; right:0;
+  margin: auto;
+}
+/*
+.carousel-control-next:hover{
+  background-color: white;
+  opacity: 0.1;
+}
+.carousel-control-prev:hover{
+  background-color: white;
+  opacity: 0.1;
+}
+.carousel-control-prev{
+  background-color: white;
+  opacity: 0.05;
+}
+.carousel-control-next{
+  background-color: white;
+  opacity: 0.05;
+}
+ */
+.carousel-control-next{
+  top: 0; bottom:0;
+  margin: auto;
+  width: 7%;
+  height: 80%;
+}
+.carousel-control-prev{
+  top: 0; bottom:0;
+  margin: auto;
+  width: 7%;
+  height: 80%;
+}
+
+
+.icon {
+  top:0;
+  left: 0;
+  font-size: 50px;
+  opacity: 0.5;
+  cursor: pointer;
+  color:white;
+}
+.icon:hover{
+  opacity: 1;
+}

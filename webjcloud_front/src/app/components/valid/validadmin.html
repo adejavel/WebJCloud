@@ -1,0 +1,23 @@
+<div class="row justify-content-md-center" *ngIf="!loading&&tovalid">
+  <div class="card text-white bg-warning mb-3" style="max-width: 20rem;margin-top: 10%"*ngIf="!loading">
+    <div class="card-header">Compte à valider : </div>
+    <div class="card-body">
+      <p class="card-text">Prénom : {{firstname}}</p>
+      <p class="card-text">Nom : {{lastname}}</p>
+      <p class="card-text">Adresse email: {{email}}</p>
+      <button type="button" class="btn btn-success" (click)="validUser()">Valider</button>
+    </div>
+  </div>
+</div>
+<div class="row justify-content-md-center" *ngIf="!loading&&!tovalid">
+  <div class="card text-white bg-warning mb-3" style="max-width: 20rem;margin-top: 10%"*ngIf="!loading">
+    <div class="card-header">Compte à valider </div>
+    <div class="card-body">
+      <p class="card-text">Compte validé avec succès</p>
+    </div>
+  </div>
+</div>
+<div *ngIf="loading">
+  <loader></loader>
+
+</div>

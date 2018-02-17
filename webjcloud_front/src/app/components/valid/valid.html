@@ -1,0 +1,13 @@
+<div class="row justify-content-md-center" *ngIf="!loading">
+  <div class="card text-white bg-warning mb-3" style="max-width: 20rem;margin-top: 10%"*ngIf="!loading&&done">
+    <div class="card-header">Validation effectuée !</div>
+    <div class="card-body">
+      <p class="card-text">{{ firstname}}, il ne manque plus que la validation de l'administrateur et votre compte JCloud sera fonctionnel !</p>
+    </div>
+  </div>
+</div>
+<div *ngIf="loading">
+  <loader></loader>
+
+</div>
+

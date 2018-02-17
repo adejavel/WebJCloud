@@ -1,0 +1,21 @@
+<div class="page">
+
+  <div *ngIf="!loading">
+
+    <div class="row">
+      <new-folder class="col col-lg-3 col-sm-6 col-md-4" (refresh)="updateData()"></new-folder>
+      <div class="col col-lg-3 col-sm-6 col-md-4" *ngFor="let year of years">
+        <div class="card text-center" [routerLink]="['/',  year]">
+          <div class="card-body">
+            <i class="material-icons" style="font-size: 150px">folder</i>
+            <h4 class="card-title" >{{year}}</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="loading">
+    <loader></loader>
+  </div>
+</div>
+

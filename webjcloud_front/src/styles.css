@@ -1,0 +1,29 @@
+/* You can add global styles to this file, and also import other style files */
+.page{
+  margin: 1%;
+  font-size: 300%;
+}
+.card:hover {
+  color:darkblue;
+}
+.card{
+  cursor: pointer;
+  height:320px;
+  margin-bottom: 5px;
+
+}
+.desc{
+  height:70px;
+  overflow: scroll;
+}
+.add {
+  color: green;
+}
+.file{
+  height:270px;
+}
+.container {
+  height: 100vh;
+  width: 200vh;
+}
+

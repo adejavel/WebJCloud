@@ -1,0 +1,62 @@
+<div class="row justify-content-md-center ">
+  <div class="col col-lg-6 col-sm-12 col-md-10" style="margin-top: 10%">
+    <div class="card text-white bg-success" style="height: auto;">
+      <div class="card-header">JCloud</div>
+
+      <div class="card-body" *ngIf="!loading">
+        <div class="alert alert-danger" role="alert" *ngIf="text_error!==''">
+          {{text_error}}
+        </div>
+        <div class="alert alert-success" role="alert" *ngIf="text_info!==''">
+          {{text_info}}
+        </div>
+        <h4 class="card-title">Connectez vous pour accéder à JCloud</h4>
+        <div class="alert alert-danger" role="alert" *ngIf="error">
+          Adresse mail ou mot de passe invalide
+        </div>
+        <form class="form" (submit)="onSubmit($event)" *ngIf="login">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Adresse mail</label>
+            <input type="email" name ="email" class="form-control" id="exampleInputEmail1" placeholder="Email" [(ngModel)]="username">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Mot de passe</label>
+            <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Mot de passe" [(ngModel)]="password" >
+          </div>
+          <button type="submit" class="btn btn-primary">Valider</button>
+        </form>
+        <form class="form" (submit)="onSubmitSignin($event)" *ngIf="signin">
+          <div class="form-group">
+            <label for="lastname">Nom</label>
+            <input type="text" name ="lastname" class="form-control" id="lastname" placeholder="Nom" [(ngModel)]="lastname">
+          </div>
+          <div class="form-group">
+            <label for="firstname">Prénom</label>
+            <input type="text" name ="firstname" class="form-control" id="firstname" placeholder="Prénom" [(ngModel)]="firstname">
+          </div>
+          <div class="form-group">
+            <label for="mailSign">Adresse mail</label>
+            <input type="email" name ="email" class="form-control" id="mailSign" placeholder="Email" [(ngModel)]="email">
+          </div>
+          <div class="form-group">
+            <label for="mailRep">Répétez l'adresse mail</label>
+            <input type="email" name ="emailrep" class="form-control" id="mailRep" placeholder="Email" [(ngModel)]="emailRep">
+          </div>
+          <div class="form-group">
+            <label for="plainPass">Mot de passe</label>
+            <input type="password" name="password" class="form-control" id="plainPass" placeholder="Mot de passe" [(ngModel)]="plainPassword" >
+          </div>
+          <div class="form-group">
+            <label for="plainPassRep">Répétez le mot de passe</label>
+            <input type="password" name="passwordRep" class="form-control" id="plainPassRep" placeholder="Mot de passe" [(ngModel)]="plainPasswordRep" >
+          </div>
+          <button type="submit" class="btn btn-primary">Valider</button>
+        </form>
+        <button type="button" class="btn btn-warning" (click)="switch()" style="margin-top: 5px">{{texte}}</button>
+      </div>
+      <div class="card-body" *ngIf="loading">
+        <loader></loader>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+<link rel="import" href="../polymer/polymer-element.html">
+
+<dom-module id="webjcloud-front">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h2>Hello [[prop1]]!</h2>
+  </template>
+
+  <script>
+    /**
+     * `webjcloud-front`
+     * Upload
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class WebjcloudFront extends Polymer.Element {
+      static get is() { return 'webjcloud-front'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'webjcloud-front'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(WebjcloudFront.is, WebjcloudFront);
+  </script>
+</dom-module>

@@ -1,0 +1,29 @@
+{
+  "name": "webjcloud-front",
+  "description": "Upload",
+  "main": "index.html",
+  "dependencies": {
+    "vaadin-upload": "vaadin/vaadin-upload#^2.1.2",
+    "vaadin-valo-theme": "vaadin/vaadin-valo-theme#^0.3.2"
+  },
+  "devDependencies": {
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^2.0.0",
+    "web-component-tester": "Polymer/web-component-tester#^6.0.0",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.0"
+  },
+  "resolutions": {
+    "polymer": "^2.0.0"
+  },
+  "homepage": "https://github.com/adejavel/webjcloud-front",
+  "authors": [
+    "Aymeric de Javel <aymeric@dejavel.fr>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

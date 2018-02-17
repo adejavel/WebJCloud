@@ -1,0 +1,12 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_host: to_change
+    database_port: to_change
+    database_name: to_change
+    database_user: to_change
+    database_password: to_change
+    secret: to_change
+    mailer_transport: to_change
+    mailer_user: to_change
+    mailer_password: to_change
+    mailer_host: to_change

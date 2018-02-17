@@ -1,0 +1,33 @@
+<div class="" [attr.data-target]="dest" (click)="showModal(dest)" style="display: inline-block;padding: 0px">
+<i  class="material-icons" style="">info</i>
+</div>
+
+<div class="modal fade uploader" [id]="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Informations sur le fichier</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+          <img [src]="link" style="max-height: 100%;max-width: 100%;width: auto;height:auto">
+
+
+
+        <h6 class="card-subtitle mb-2 text-muted" style="margin-top: 20px">{{added*1000|date}}</h6>
+        <p class="card-title" style="font-size: 30%">{{name}}</p>
+
+        <div class ="desc">
+          <p class="card-text" style="font-size: 15px;">{{description}}</p>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Terminer</button>
+        </div>
+
+      </div>
+    </div>
+  </div>

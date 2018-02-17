@@ -1,0 +1,43 @@
+<div class="page">
+  <a [routerLink]="['/',year]" class="btn btn-primary">← Retour</a>
+  <div *ngIf="!loading">
+
+    <div class="row">
+      <div class=" col col-lg-3 col-sm-12 col-md-6">
+        <uploader dossier="{{dossier}}" year="{{year}}" (refresh)="updateDocs()"></uploader>
+      </div>
+      <div class="col col-lg-3 col-sm-12 col-md-6" *ngFor="let doc of documents; let i=index" style="margin-bottom: 20px">
+        <div class="card text-center">
+          <div class="card-body">
+            <div *ngIf="doc.isimage" style="">
+              <div style="size: auto" [routerLink]="['/', year, dossier,doc.url]">
+                <img [src]="doc.link" style="max-height: 180px;max-width: 250px;width: auto;height:auto">
+              </div>
+              <div style="display: inline-block" >
+                <infos [id]="i" [name]="doc.name" [link]="doc.link" [added]="doc.added" [description]="doc.description"></infos>
+
+                <a [href]="doc.linkDown" [download]="doc.name+'.png'"  style="color: #212529"><i  class="material-icons">archive</i></a>
+                <i class="material-icons" style="color: #212529" *ngIf="doc.user" (click)="delete(doc.id)">delete_forever</i>
+              </div>
+
+            </div>
+            <div *ngIf="doc.isvideo">
+              <video autoplay muted style="max-height: 180px;max-width: 250px;width: auto;height:auto">
+                <source [src]="doc.link" type="">
+              </video>
+              <div style="display: inline-block" >
+                <infos [id]="i" [name]="doc.name" [link]="doc.link" [added]="doc.added" [description]="doc.description"></infos>
+
+                <a [href]="doc.linkDown" [download]="doc.name+'.png'"  style="color: #212529"><i  class="material-icons">archive</i></a>
+                <i class="material-icons" style="color: #212529" *ngIf="doc.user" (click)="delete(doc.id)">delete_forever</i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="loading">
+    <loader></loader>
+  </div>
+</div>
